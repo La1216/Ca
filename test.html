@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cartioré Luxe — Preorder</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 20px; }
+    .products { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+    .product-card { border: 1px solid #ddd; border-radius: 10px; padding: 12px; text-align: center; }
+    .product-card img { width: 100%; border-radius: 8px; }
+    .product-card h3 { margin: 10px 0 6px; font-size: 18px; }
+    .product-card p { font-size: 14px; color: #555; }
+    .product-card button { padding: 8px 12px; margin-top: 8px; background: black; color: white; border: none; border-radius: 6px; cursor: pointer; }
+    /* Modal */
+    .modal-backdrop { position: fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.6); display:none; justify-content:center; align-items:center; }
+    .modal { background:#fff; padding:20px; border-radius:12px; max-width:400px; width:100%; }
+    .modal button.close { float:right; font-size:18px; border:none; background:none; cursor:pointer; }
+    .modal img { width:100px; border-radius:8px; margin-right:12px; }
+  </style>
+</head>
+<body>
+
+  <h1>Cartioré Luxe Preorder</h1>
+  <div class="products" id="productsContainer"></div>
+
+  <!-- Modal -->
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal">
+      <button class="close" onclick="closeModal()">✖</button>
+      <div style="display:flex;gap:12px;align-items:flex-start">
+        <img id="modalImg" src="" alt="">
+        <div>
+          <h3 id="modalTitle">Product name</h3>
+          <p id="modalDesc">Description</p>
+        </div>
+      </div>
+
+      <!-- Preorder Form -->
+      <form id="preorderForm" action="https://formsubmit.co/cartioreluxe@gmail.com" method="POST" style="margin-top:16px;">
+        <input id="emailInput" type="email" name="email" placeholder="Your email address" ;>
+        <input id="prodInput" type="hidden" name="product">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_subject" value="New Cartioré Luxe Preorder">
+        <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
+        <button type="submit" style="padding:10px 16px;background:black;color:white;border:none;border-radius:6px;cursor:pointer;">Confirm Preorder</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const products = [
+      { id: 'p001', title: 'The Noir Blazer', desc: 'Hand-tailored blazer with satin lapel — limited run.', image: 'women3.jpg' },
+      { id: 'p002', title: 'Midnight Trench', desc: 'Lightweight trench with structured shoulders.', image: 'women2.jpg' },
+      { id: 'p003', title: 'Silk Ply Shirt', desc: '100% silk for nightwear or formal elegance.', image: '2.jpg' },
+      { id: 'p004', title: 'Couture Trousers', desc: 'Slim-cut trousers with couture finishing.', image: 'men3.jpg' },
+      { id: 'p005', title: 'Luxe Overcoat', desc: 'Wool blend for premium warmth and shape.', image: 'women3.jpg' },
+      { id: 'p007', title: 'Casual Luxe Tee', desc: 'Premium cotton, relaxed fit.', image: 'men2.jpg' },
+      { id: 'p008', title: 'Signature Hoodie', desc: 'Chunky knit with embroidered logo.', image: 'men1.jpg' },
+      { id: 'p009', title: 'Signature Hoodie', desc: 'Chunky knit with embroidered logo.', image: 'men5.jpg' }
+    ];
+
+    const container = document.getElementById("productsContainer");
+
+    // Render products
+    products.forEach(p => {
+      const card = document.createElement("div");
+      card.className = "product-card";
+      card.innerHTML = `
+        <img src="${p.image}" alt="${p.title}">
+        <h3>${p.title}</h3>
+        <p>${p.desc}</p>
+        <button onclick="openPreorder('${p.title}', '${p.desc}', '${p.image}')">Preorder</button>
+      `;
+      container.appendChild(card);
+    });
+
+    function openPreorder(productName, productDesc, productImg) {
+      document.getElementById("modalTitle").textContent = productName;
+      document.getElementById("modalDesc").textContent = productDesc;
+      document.getElementById("modalImg").src = productImg;
+      document.getElementById("prodInput").value = productName;
+      document.getElementById("modalBackdrop").style.display = "flex";
+    }
+
+    function closeModal() {
+      document.getElementById("modalBackdrop").style.display = "none";
+    }
+  </script>
+</body>
+</html>

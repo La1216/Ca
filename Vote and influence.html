@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cartioré — Vote & Influence</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #6e5e57;
+      /* brand deep wine */
+      --bg-2: #6e5e57;
+      /* deeper panel */
+      --text: #ffffff;
+      --muted: rgba(255, 255, 255, .65);
+      --accent: #9e9e9e;
+      /* action red */
+      --accent-2: #9e9e9e;
+      /* hover */
+      --good: #33d69f;
+      /* produce */
+      --bad: #9e9e9e;
+      /* skip */
+      --card: #6e5e57;
+      /* card bg */
+      --stroke: rgba(255, 255, 255, .12);
+      --shadow: 0 10px 30px rgba(0, 0, 0, .35);
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html,
+    body {
+      height: 100%
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial;
+      color: var(--text);
+      background: radial-gradient(1000px 600px at 10% -10%, #6e5e57 0%, rgba(64, 15, 22, 0) 60%),
+        radial-gradient(900px 600px at 110% 10%, #6e5e57 0%, rgba(64, 15, 22, 0) 60%),
+        var(--bg);
+
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1200px, 92vw);
+      margin: 0 auto
+    }
+
+    /* Header */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: saturate(1.2) blur(8px);
+      background: linear-gradient(180deg, #0000, #0000);
+      border-bottom: 1px solid var(--stroke);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      justify-content: space-between;
+      padding: 14px 0
+    }
+
+    .brand {
+      display: flex;
+      gap: 12px;
+      align-items: center
+    }
+
+    /* .logo{width:34px; height:34px; border-radius:10px; background:linear-gradient(135deg,#ff8ba3,#ff4655); box-shadow:var(--shadow)} */
+    .brand h1 {
+      font-size: 18px;
+      margin: 0;
+      letter-spacing: .06em
+    }
+
+    .cta {
+      display: flex;
+      gap: 10px;
+      align-items: center
+    }
+
+    .btn {
+      appearance: none;
+      border: none;
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-weight: 600;
+      cursor: pointer
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-2)
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: #fff;
+      border: 1px solid var(--stroke)
+    }
+
+    .order {
+      text-decoration: none;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 48px 0 22px
+    }
+
+    .hero h2 {
+      margin: 0 0 12px;
+      font-size: clamp(28px, 4.5vw, 48px);
+      letter-spacing: .01em
+    }
+
+    .hero p {
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(14px, 2vw, 17px)
+    }
+
+    /* Stats bar */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin: 22px 0 28px
+    }
+
+    .stat {
+      background: var(--card);
+      border: 1px solid var(--stroke);
+      border-radius: 16px;
+      padding: 14px 16px
+    }
+
+    .stat .k {
+      font-size: 20px;
+      font-weight: 800
+    }
+
+    .stat .l {
+      font-size: 12px;
+      color: var(--muted)
+    }
+
+    /* Filters */
+    .filters {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 6px 0 24px
+    }
+
+    .chip {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--card);
+      border: 1px solid var(--stroke);
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 13px
+    }
+
+    .chip.active {
+      background: var(--accent);
+      border-color: transparent
+    }
+
+    /* Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 18px
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column
+    }
+
+    .media {
+      position: relative;
+      aspect-ratio: 4/5;
+      background: #0000
+    }
+
+    .media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block
+    }
+
+    .badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(0, 0, 0, .45);
+      border: 1px solid var(--stroke);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px
+    }
+
+    .content {
+      padding: 14px 14px 6px
+    }
+
+    .title {
+      font-weight: 700;
+      font-size: 16px;
+      margin: 0 0 4px
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 10px
+    }
+
+    /* Progress */
+    .bar {
+      height: 10px;
+      background: #2a0b10;
+      border: 1px solid var(--stroke);
+      border-radius: 999px;
+      overflow: hidden
+    }
+
+    .bar>span {
+      display: block;
+      height: 100%;
+      width: 0
+    }
+
+    .bar .yes {
+      background: linear-gradient(90deg, #9e9e9e, #9e9e9e)
+    }
+
+    .bar .no {
+      background: linear-gradient(90deg, #6e5e21, #6e5e21)
+    }
+
+    .bar-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      align-items: center;
+      margin-top: 10px
+    }
+
+    .pct {
+      font-size: 12px;
+      color: var(--muted)
+    }
+
+    /* Actions */
+    .actions {
+      display: flex;
+      gap: 8px;
+      margin: 12px 0 10px
+    }
+
+    .vote {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-weight: 700;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--stroke);
+      background: transparent;
+      color: #fff;
+      cursor: pointer
+    }
+
+    .vote.yes {
+      background: rgba(51, 214, 159, .12);
+      border-color: rgba(51, 214, 159, .35)
+    }
+
+    .vote.no {
+      background: rgba(255, 159, 26, .12);
+      border-color: rgba(255, 159, 26, .35)
+    }
+
+    .vote:disabled {
+      opacity: .55;
+      cursor: not-allowed
+    }
+
+    /* Leaderboard */
+    .leader {
+      margin: 34px 0 12px;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 12px;
+      align-items: center
+    }
+
+    .leader h3 {
+      grid-column: 1/-1;
+      margin: 0 0 8px
+    }
+
+    .lead-row {
+      background: var(--card);
+      border: 1px solid var(--stroke);
+      border-radius: 12px;
+      padding: 10px 12px;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 12px;
+      align-items: center
+    }
+
+    /* How it works */
+    .how {
+      margin: 36px 0 60px;
+      display: grid;
+      gap: 14px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr))
+    }
+
+    .how .step {
+      background: var(--card);
+      border: 1px solid var(--stroke);
+      padding: 16px;
+      border-radius: 16px
+    }
+
+    .step .n {
+      font-weight: 800;
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: .12em
+    }
+
+    .step h4 {
+      margin: 8px 0 6px
+    }
+
+    .step p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px
+    }
+
+    /* Footer info bar (page footer, not site) */
+    .info {
+      margin: 30px 0 60px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between
+    }
+
+    .info .links {
+      display: flex;
+      gap: 16px;
+      color: var(--muted)
+    }
+
+    /* Countdown */
+    .countdown {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      color: var(--muted);
+      font-weight: 600
+    }
+
+    .cd-box {
+      background: var(--card);
+      border: 1px solid var(--stroke);
+      padding: 8px 10px;
+      border-radius: 10px;
+      min-width: 54px;
+      text-align: center
+    }
+
+    .cd-box .big {
+      display: block;
+      font-size: 18px;
+      font-weight: 800;
+      color: #fff
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      background: var(--card);
+      border: 1px solid var(--stroke);
+      border-radius: 12px;
+      padding: 12px 14px;
+      box-shadow: var(--shadow);
+      display: none
+    }
+
+    @media (max-width:720px) {
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .leader {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .lead-row {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body> <!-- Header -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <h1>Cartioré</h1>
+        <a href="cartioreeeeluxe.html">Home</a>
+        <!-- <div class="order"><a href="order.html">Order</a> -->
+          <!-- <a href="#">Vote</a> -->
+          <a href="Cartiore Models.html">Models</a>
+          <a href="about.html">About</a>
+        </div>
+      </div>
+      <div class="cta">
+        <button class="btn btn-ghost" id="howBtn"><span class="material-symbols-outlined" aria-hidden="true">help</span>
+          How it works</button>
+        <button class="btn btn-primary" id="shareBtn"><span class="material-symbols-outlined"
+            aria-hidden="true">share</span> Share vote</button>
+      </div>
+    </div>
+  </header>
+  <main class="container">
+    <!-- Hero -->
+    <section class="hero">
+      <h2>Vote & Influence the Next Cartioré Drop</h2>
+      <p>Pick the styles you want us to produce. When a design reaches its target, it goes into limited production — no
+        waste, just wanted fashion.</p>
+    </section><!-- Stats -->
+    <section class="stats" aria-label="Voting statistics">
+      <div class="stat">
+        <div class="k" id="statVoters">0</div>
+        <div class="l">Total Voters</div>
+      </div>
+      <div class="stat">
+        <div class="k" id="statDesigns">0</div>
+        <div class="l">Designs in Voting</div>
+      </div>
+      <div class="stat">
+        <div class="k" id="statFunded">0</div>
+        <div class="l">Reached Target</div>
+      </div>
+    </section>
+
+    <!-- Countdown -->
+    <section class="countdown" aria-label="Voting closes countdown">
+      <span class="material-symbols-outlined" aria-hidden="true">schedule</span> Voting closes in
+      <div class="cd-box"><span class="big" id="cdDays">--</span><small>Days</small></div>
+      <div class="cd-box"><span class="big" id="cdHours">--</span><small>Hours</small></div>
+      <div class="cd-box"><span class="big" id="cdMins">--</span><small>Mins</small></div>
+    </section>
+
+    <!-- Filters -->
+    <section class="filters" aria-label="Filter designs">
+      <button class="chip active" data-filter="all">All</button>
+      <button class="chip" data-filter="dresses">Dresses</button>
+      <button class="chip" data-filter="outerwear">Outerwear</button>
+      <button class="chip" data-filter="shirts">Shirts</button>
+      <button class="chip" data-filter="unisex">Unisex</button>
+    </section>
+
+    <!-- Grid -->
+    <section class="grid" id="grid" aria-live="polite"></section>
+
+    <!-- Leaderboard -->
+    <section class="leader" aria-label="Top designs">
+      <h3>Trending Now</h3>
+      <div class="lead-row"><strong id="lead1">—</strong><span id="lead1y">—% Yes</span><span id="lead1n">—% No</span>
+      </div>
+      <div class="lead-row"><strong id="lead2">—</strong><span id="lead2y">—% Yes</span><span id="lead2n">—% No</span>
+      </div>
+      <div class="lead-row"><strong id="lead3">—</strong><span id="lead3y">—% Yes</span><span id="lead3n">—% No</span>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="how" id="how">
+      <div class="step">
+        <span class="n">STEP 1</span>
+        <h4>Explore Upcoming Designs</h4>
+        <p>Each card shows a pre‑production concept. We only produce what the community loves.</p>
+      </div>
+      <div class="step">
+        <span class="n">STEP 2</span>
+        <h4>Cast Your Vote</h4>
+        <p>Tap <strong>Produce</strong> or <strong>Not This Time</strong>. Your vote updates the progress instantly.</p>
+      </div>
+      <div class="step">
+        <span class="n">STEP 3</span>
+        <h4>Limited Run</h4>
+        <p>When a design hits its target, we craft a limited batch and notify voters first.</p>
+      </div>
+    </section>
+
+    <!-- Info / legal links for this page -->
+    <section class="info">
+      <div class="links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="">Contact</a>
+      </div>
+      <small>© 2025 Cartioré — Community‑driven fashion.</small>
+    </section>
+
+  </main> <!-- Hidden form for FormSubmit (one form reused for all votes) -->
+  <form id="voteForm" action="https://formsubmit.co/cartioreluxe@gmail.com" method="POST" style="display:none">
+    <input type="hidden" name="design_id" id="f_design_id" />
+    <input type="hidden" name="design_name" id="f_design_name" />
+    <input type="hidden" name="vote" id="f_vote" />
+    <!-- Optional: redirect + captcha disable -->
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
+  </form>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script>
+    /* ==============================
+       Config: replace placeholders
+       ============================== */
+    const VOTING_CLOSES_AT = new Date('2026-01-01T23:59:59'); // change as needed
+    const PLACEHOLDER_IMG = 'https://images.unsplash.com/photo-1520975922284-9d09b777a0f8?q=80&w=1200&auto=format&fit=crop';
+
+    // Your upcoming designs (edit freely)
+    const DESIGNS = [
+      {
+        id: 'CR-DRS-09', name: 'Aurélie Silk Slip', category: 'dresses', goal: 200,
+        img: 'men5.jpg', desc: 'Bias-cut silk slip with low back and adjustable straps.', tags: ['silk', 'evening', 'limited']
+      },
+      {
+        id: 'CR-OUT-00', name: 'Velour Cropped Bomber', category: 'outerwear', goal: 200,
+        img: 'women3.jpg', desc: '90s-inspired bomber with velvet finish and satin lining.', tags: ['velour', 'street', 'unisex']
+      },
+      {
+        id: 'CR-SHR-03', name: 'Signature Monogram Shirt', category: 'shirts', goal: 200,
+        img: 'men1.jpg', desc: 'Oversized cut, tonal monogram, concealed placket.', tags: ['monogram', 'oversized']
+      },
+      {
+        id: 'CR-UNI-04', name: 'Reversible Tech Hoodie', category: 'unisex', goal: 200,
+        img: 'men3.jpg', desc: 'Water‑repellent face, breathable knit reverse. Two looks, one piece.', tags: ['reversible', 'tech', 'capsule']
+      },
+      {
+        id: 'CR-DPS-05', name: 'Corset Midi Dress', category: 'dresses', goal: 200,
+        img: 'men2.jpg', desc: 'Boned corsetry, sweetheart neckline, structured yet comfortable.', tags: ['corset', 'midi']
+      },
+      {
+        id: 'CR-ONT-06', name: 'Sculpt Trench Coat', category: 'outerwear', goal: 200,
+        img: 'women1.jpg', desc: 'Contour paneling with storm flap and removable belt.', tags: ['trench', 'tailored']
+      },
+      {
+        id: 'CR-OHT-07', name: 'Sculpt Trench Gown', category: 'outerwear', goal: 200,
+        img: 'women2.jpg', desc: 'Contour paneling with storm flap and removable belt.', tags: ['trench', 'tailored']
+      },
+      {
+        id: 'CR-OKT-08', name: 'La croix', category: 'outerwear', goal: 200,
+        img: 'women4.jpg', desc: 'Contour paneling with storm flap and removable belt.', tags: ['trench', 'tailored']
+      },
+    ];
+
+    /* ==============================
+       State management (local only)
+       ============================== */
+    const STORAGE_KEY = 'cartiore_votes_v1';
+    const store = {
+      load() { try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {} } catch { return {} } },
+      save(data) { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); }
+    };
+    let state = store.load(); // { [designId]: {yes: n, no: n, voted: 'yes'|'no'} }
+
+    // Initialize vote counters if missing
+    DESIGNS.forEach(d => {
+      if (!state[d.id]) state[d.id] = { yes: Math.floor(Math.random() * 60 + 40), no: Math.floor(Math.random() * 25), voted: null };
+    });
+    store.save(state);
+
+    /* ==============================
+       DOM helpers
+       ============================== */
+    const $ = sel => document.querySelector(sel);
+    const el = (tag, cls, html) => { const n = document.createElement(tag); if (cls) n.className = cls; if (html != null) n.innerHTML = html; return n; };
+
+    function toast(msg) { const t = $('#toast'); t.textContent = msg; t.style.display = 'block'; clearTimeout(t._h); t._h = setTimeout(() => t.style.display = 'none', 3000); }
+
+    /* ==============================
+       Build cards
+       ============================== */
+    const grid = $('#grid');
+
+    function pct(yes, no) { const total = Math.max(yes + no, 1); return { y: Math.round(yes / total * 100), n: 100 - Math.round(yes / total * 100) } }
+
+    function cardTemplate(d) {
+      const s = state[d.id];
+      const { y, n } = pct(s.yes, s.no);
+
+      const card = el('article', 'card');
+      card.setAttribute('data-category', d.category);
+
+      const media = el('div', 'media');
+      const img = new Image(); img.src = d.img || PLACEHOLDER_IMG; img.alt = d.name; img.loading = 'lazy';
+      img.onerror = () => { img.src = PLACEHOLDER_IMG };
+      media.appendChild(img);
+      media.appendChild(el('span', 'badge', d.category));
+
+      const content = el('div', 'content');
+      content.appendChild(el('h3', 'title', d.name));
+      content.appendChild(el('div', 'meta', d.desc));
+      const tagline = el('div', 'meta', d.tags.map(t => `#${t}`).join(' · ')); content.appendChild(tagline);
+
+      // Progress bars
+      const bars = el('div', 'bar-wrap');
+      const barYes = el('div', 'bar'); barYes.appendChild(el('span', 'yes')); barYes.firstChild.style.width = y + '%';
+      const barNo = el('div', 'bar'); barNo.appendChild(el('span', 'no')); barNo.firstChild.style.width = n + '%';
+      const pctY = el('div', 'pct', y + '% yes');
+      const pctN = el('div', 'pct', n + '% no');
+      bars.append(barYes, barNo, pctY, pctN);
+
+      // Actions
+      const actions = el('div', 'actions');
+      const yesBtn = el('button', 'vote yes', '<span class="material-symbols-outlined" aria-hidden="true">thumb_up</span> Produce');
+      const noBtn = el('button', 'vote no', '<span class="material-symbols-outlined" aria-hidden="true">thumb_down</span> Not This Time');
+      actions.append(yesBtn, noBtn);
+
+      // Disable if already voted
+      // if (s.voted) { yesBtn.disabled = true; noBtn.disabled = true; }
+
+      // Handlers
+      yesBtn.addEventListener('click', () => handleVote(d, 'yes', card));
+      noBtn.addEventListener('click', () => handleVote(d, 'no', card));
+
+      content.appendChild(bars);
+      content.appendChild(actions);
+      card.append(media, content);
+      return card;
+    }
+
+    function renderGrid() {
+      grid.innerHTML = '';
+      DESIGNS.forEach(d => grid.appendChild(cardTemplate(d)));
+      updateStats();
+      updateLeaders();
+    }
+
+    /* ==============================
+       Voting
+       ============================== */
+    function handleVote(d, vote, card) {
+      const s = state[d.id];
+      if (s.voted) { toast('You already voted on this design.'); return }
+
+      // Optimistic update
+      s[vote] += 1; s.voted = vote; store.save(state);
+
+      // Update only this card
+      const newCard = cardTemplate(d); card.replaceWith(newCard);
+      updateStats(); updateLeaders();
+
+      // Submit to FormSubmit (opens in background tab)
+      const form = document.getElementById('voteForm');
+      form.querySelector('#f_design_id').value = d.id;
+      form.querySelector('#f_design_name').value = d.name;
+      form.querySelector('#f_vote').value = vote === 'yes' ? 'Produce' : 'Skip';
+      form.submit();
+      toast(`Vote recorded for “${d.name}” — ${vote === 'yes' ? 'Produce' : 'Not This Time'}.`);
+    }
+
+    /* ==============================
+       Filters
+       ============================== */
+    document.querySelectorAll('.chip').forEach(ch => {
+      ch.addEventListener('click', () => {
+        document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+        ch.classList.add('active');
+        const f = ch.dataset.filter;
+        document.querySelectorAll('.card').forEach(card => {
+          const show = f === 'all' || card.getAttribute('data-category') === f;
+          card.style.display = show ? '' : 'none';
+        });
+      });
+    });
+
+    /* ==============================
+       Stats & Leaders
+       ============================== */
+    function updateStats() {
+      const voters = Object.values(state).reduce((acc, s) => acc + (s.voted ? 1 : 0), 0);
+      const funded = Object.values(state).filter(s => (s.yes / (s.yes + s.no)) >= 0.7 && (s.yes + s.no) >= 150).length; // example criteria
+      document.getElementById('statVoters').textContent = voters.toLocaleString();
+      document.getElementById('statDesigns').textContent = DESIGNS.length.toString();
+      document.getElementById('statFunded').textContent = funded.toString();
+    }
+
+    function updateLeaders() {
+      const arr = DESIGNS.map(d => ({ d, ratio: state[d.id].yes / (Math.max(1, (state[d.id].yes + state[d.id].no))) }));
+      arr.sort((a, b) => b.ratio - a.ratio);
+      const top = arr.slice(0, 3);
+      const ids = ['lead1', 'lead2', 'lead3'];
+      const ys = ['lead1y', 'lead2y', 'lead3y'];
+      const ns = ['lead1n', 'lead2n', 'lead3n'];
+      top.forEach((t, i) => {
+        const y = Math.round(t.ratio * 100); const n = 100 - y;
+        document.getElementById(ids[i]).textContent = t.d.name;
+        document.getElementById(ys[i]).textContent = y + "% Yes";
+        document.getElementById(ns[i]).textContent = n + "% No";
+      });
+    }
+
+    /* ==============================
+       Countdown
+       ============================== */
+    function tick() {
+      const now = new Date();
+      let diff = Math.max(0, VOTING_CLOSES_AT - now);
+      const d = Math.floor(diff / (1000 * 60 * 60 * 24)); diff -= d * 86400000;
+      const h = Math.floor(diff / (1000 * 60 * 60)); diff -= h * 3600000;
+      const m = Math.floor(diff / (1000 * 60));
+      document.getElementById('cdDays').textContent = d;
+      document.getElementById('cdHours').textContent = h.toString().padStart(2, '0');
+      document.getElementById('cdMins').textContent = m.toString().padStart(2, '0');
+    }
+    setInterval(tick, 1000 * 15); tick();
+
+    /* ==============================
+       Share + How buttons
+       ============================== */
+    document.getElementById('shareBtn').addEventListener('click', async () => {
+      const shareData = { title: 'Cartioré — Vote & Influence', text: 'Help me decide what Cartioré should produce next!', url: location.href };
+      if (navigator.share) { try { await navigator.share(shareData); toast('Thanks for sharing!'); } catch (e) { } }
+      else { navigator.clipboard.writeText(shareData.url); toast('Link copied to clipboard.'); }
+    });
+    document.getElementById('howBtn').addEventListener('click', () => {
+      document.getElementById('how').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // Initial render
+    renderGrid();
+  </script>
+</body>
+
+</html>
