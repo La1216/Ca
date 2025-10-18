@@ -1,51 +1,132 @@
 <!doctype html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <!-- Basic SEO -->
-  <title>Cartioré Luxe | Luxury Jewelry, Couture & Timeless Elegance</title>
-  <meta name="description" content="Cartioré Luxe — where timeless craftsmanship meets modern elegance. Explore our collection of luxury jewelry, couture fashion, and bespoke accessories designed to inspire confidence and class.">
-  <meta name="keywords" content="Cartioré Luxe, luxury jewelry, fashion brand, couture, designer accessories, elegance, craftsmanship, luxury fashion">
-  <meta name="author" content="Cartioré Luxe">
-  <meta name="robots" content="index, follow">
+  <!-- Meta Basics -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://cartioreluxe.com/logo.jpg" type="image/jpeg">
+
+  <!-- Title (Default for all pages) -->
+  <title>Cartioré Luxe | Luxury Fashion, Couture & Timeless Elegance</title>
+
+  <!-- Global SEO -->
+  <meta name="description" content="Cartioré Luxe is a luxury fashion and jewelry house founded by Ahmad Lawal and Lawal Olasunkanmi. Discover couture, accessories, and timeless pieces crafted to perfection.">
+  <meta name="keywords" content="Cartioré Luxe, Ahmad Lawal, Lawal Olasunkanmi, luxury fashion, couture, jewelry, designer brand, elegant style, bespoke clothing, accessories, timeless craftsmanship">
+  <meta name="author" content="Cartioré Luxe">
+  <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://cartioreluxe.com">
 
-  <!-- Open Graph (For social sharing) -->
-  <meta property="og:title" content="Cartioré Luxe | Luxury Jewelry & Timeless Elegance">
-  <meta property="og:description" content="Discover the world of Cartioré Luxe — jewelry and couture that redefine luxury and sophistication.">
-  <meta property="og:image" content="https://cartioreluxe.com/logo.png">
+  <!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
+  <meta property="og:title" content="Cartioré Luxe | Luxury Fashion, Couture & Timeless Elegance">
+  <meta property="og:description" content="Founded by Ahmad Lawal & Lawal Olasunkanmi — Cartioré Luxe blends heritage, modern artistry, and sophistication into every couture creation.">
+  <meta property="og:image" content="https://cartioreluxe.com/og-cover.jpg">
   <meta property="og:url" content="https://cartioreluxe.com">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Cartioré Luxe">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Cartioré Luxe | Luxury Jewelry & Timeless Elegance">
-  <meta name="twitter:description" content="Experience luxury redefined — Cartioré Luxe’s signature jewelry and couture collections.">
-  <meta name="twitter:image" content="https://cartioreluxe.com/logo.jpg">
+  <meta name="twitter:title" content="Cartioré Luxe | Luxury Fashion, Couture & Timeless Elegance">
+  <meta name="twitter:description" content="Discover Cartioré Luxe — where African elegance meets European precision.">
+  <meta name="twitter:image" content="https://cartioreluxe.com/og-cover.jpg">
 
-  <!-- Favicon -->
-  <link rel="icon" href="https://cartioreluxe.com/favicon.ico" type="image/x-icon">
-
-  <!-- Schema.org Structured Data -->
+  <!-- Schema.org: Organization -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Brand",
+    "@type": "Organization",
     "name": "Cartioré Luxe",
     "url": "https://cartioreluxe.com",
     "logo": "https://cartioreluxe.com/logo.jpg",
-    "description": "Cartioré Luxe is a luxury fashion and jewelry house known for timeless design, bold craftsmanship, and modern sophistication.",
-    "founder": "Ahmad Lawal",
-    "foundingDate": "2025",
+    "founder": [
+      {"@type": "Person", "name": "Ahmad Lawal"},
+      {"@type": "Person", "name": "Lawal Olasunkanmi"}
+    ],
     "sameAs": [
       "https://www.instagram.com/cartiore_luxe",
-      "https://x.com/_cartiore_",
+      "https://x.com/_cartiore_"
     ]
+  }
+  </script>
+
+  <!-- Home Page Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FashionBrand",
+    "name": "Cartioré Luxe",
+    "url": "https://cartioreluxe.com",
+    "logo": "https://cartioreluxe.com/logo.jpg",
+    "description": "Luxury fashion house offering couture, jewelry, and bespoke elegance.",
+    "foundingDate": "2025",
+    "founder": [
+      {"@type": "Person", "name": "Ahmad Lawal"},
+      {"@type": "Person", "name": "Lawal Olasunkanmi"}
+    ]
+  }
+  </script>
+
+  <!-- About Page Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "url": "https://cartioreluxe.com/About",
+    "headline": "About Cartioré Luxe — Founded by Ahmad Lawal & Lawal Olasunkanmi",
+    "mainEntity": {
+      "@type": "FashionBrand",
+      "name": "Cartiore Luxe",
+      "founder": [
+        {"@type": "Person", "name": "Ahmad Lawal"},
+        {"@type": "Person", "name": "Lawal Olasunkanmi"}
+      ]
+    }
+  }
+  </script>
+
+  <!-- Shop / Collections Page Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "url": "https://cartioreluxe.com/Home",
+    "name": "Cartioré Luxe Collections",
+    "description": "Explore couture and jewelry collections by Cartioré Luxe — handcrafted with precision and passion.",
+    "mainEntity": [
+      {
+        "@type": "Product",
+        "name": "Couture Collection",
+        "brand": "Cartioré Luxe",
+        "image": "https://cartioreluxe.com/Home/women3.jpg",
+        "description": "Signature couture designed with bold artistry and timeless detail."
+      },
+      {
+        "@type": "Product",
+        "name": "Luxury ",
+        "brand": "Cartioré Luxe",
+        "image": "https://cartioreluxe.com/Home/women1.jpg",
+        "description": "Exquisite design that defines modern luxury."
+      }
+    ]
+  }
+  </script>
+
+  <!-- Contact Page Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "url": "https://cartioreluxe.com/contact",
+    "headline": "Contact Cartioré Luxe",
+    "mainEntity": {
+      "@type": "ContactPoint",
+      "telephone": "+44-XXX-XXX-XXXX",
+      "contactType": "Customer Service",
+      "areaServed": "Worldwide",
+      "availableLanguage": ["English", "French"]
+    }
   }
   </script>
 
@@ -1144,5 +1225,6 @@
 
 </body>
 </html>
+
 
 
