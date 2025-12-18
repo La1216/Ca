@@ -134,7 +134,7 @@
   </script>
 
 
-  <!-- Google font -->
+ <!-- Google font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
   <style>
@@ -148,12 +148,12 @@
     }
 
     * {
-      box-sizing: border-box
+      box-sizing: border-box;
     }
 
     html,
     body {
-      height: 100%
+      height: 100%;
     }
 
     body {
@@ -205,28 +205,13 @@
       gap: 18px;
       align-items: center;
       color: var(--muted);
-      font-weight: 600
+      font-weight: 600;
     }
 
     .nav-links a {
       color: inherit;
       text-decoration: none;
-      font-size: 14px
-    }
-
-    .nav-actions {
-      display: flex;
-      gap: 10px;
-      align-items: center
-    }
-
-    .profile {
-      width: 36px;
-      height: 36px;
-      border-radius: 4px;
-      background: #222;
-      display: inline-block;
-      border: 1px solid rgba(255, 255, 255, 0.04)
+      font-size: 14px;
     }
 
     /* Hero */
@@ -254,25 +239,20 @@
       color: var(--muted);
       display: inline-block;
       font-size: 13px;
-      margin-bottom: 14px
+      margin-bottom: 14px;
     }
 
     .hero-title {
       font-size: 48px;
       font-weight: 800;
       margin-bottom: 12px;
-      letter-spacing: 0.4px
+      letter-spacing: 0.4px;
     }
 
     .hero-sub {
       color: var(--muted);
       max-width: 700px;
-      margin-bottom: 18px
-    }
-
-    .hero-cta {
-      display: flex;
-      gap: 12px
+      margin-bottom: 18px;
     }
 
     .btn {
@@ -286,18 +266,11 @@
       box-shadow: 0 6px 18px rgba(233, 9, 20, 0.12);
     }
 
-    .btn.secondary {
-      background: transparent;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      color: #fff;
-      font-weight: 600;
-    }
-
     /* Rows */
     .container {
       padding: 28px 24px 80px;
       max-width: 1300px;
-      margin: 0 auto
+      margin: 0 auto;
     }
 
     .row {
@@ -306,7 +279,7 @@
 
     .row h3 {
       margin: 0 0 10px;
-      font-size: 20px
+      font-size: 20px;
     }
 
     .carousel {
@@ -326,12 +299,12 @@
     }
 
     .track::-webkit-scrollbar {
-      height: 10px
+      height: 10px;
     }
 
     .track::-webkit-scrollbar-thumb {
       background: rgba(255, 255, 255, 0.06);
-      border-radius: 999px
+      border-radius: 999px;
     }
 
     .card {
@@ -349,7 +322,7 @@
       width: 100%;
       height: 300px;
       object-fit: cover;
-      display: block
+      display: block;
     }
 
     .card .meta {
@@ -360,19 +333,13 @@
 
     .card h4 {
       margin: 0;
-      font-size: 15px
-    }
-
-    /* make images scale nicely by default */
-    img {
-      max-width: 100%;
-      height: auto;
+      font-size: 15px;
     }
 
     .card p {
       margin: 6px 0 0;
       font-size: 13px;
-      color: var(--muted)
+      color: var(--muted);
     }
 
     .card .preorder {
@@ -390,11 +357,7 @@
 
     .card:hover {
       transform: translateY(-8px) scale(1.02);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6)
-    }
-
-    .card:hover .meta {
-      background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6))
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
     }
 
     /* scroll buttons */
@@ -417,37 +380,35 @@
     }
 
     .scroll-btn.left {
-      left: -6px
+      left: -6px;
     }
 
     .scroll-btn.right {
-      right: -6px
+      right: -6px;
     }
 
     /* modal */
     .modal-backdrop {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.6);
+      background: rgba(0, 0, 0, 0.8);
       display: none;
       align-items: center;
       justify-content: center;
       z-index: 60;
+      overflow-y: auto;
     }
 
     .modal {
       width: 96%;
-      max-width: 720px;
-      background: #c4a48401;
+      max-width: 600px;
+      background: #1a1a1a;
       border-radius: 10px;
-      padding: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.03);
+      padding: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
       box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7);
-    }
-
-    .modal .modal-head {
-      display: flex;
-      gap: 12px
+      margin: 20px auto;
+      position: relative;
     }
 
     .modal img {
@@ -455,47 +416,58 @@
       height: 220px;
       object-fit: cover;
       border-radius: 6px;
-      flex-shrink: 0
-    }
-
-    .modal .details {
-      flex: 1
+      flex-shrink: 0;
     }
 
     .modal h3 {
-      margin: 0 0 8px
+      margin: 0 0 8px;
     }
 
     .modal p {
       color: var(--muted);
-      margin: 0 0 14px
+      margin: 0 0 14px;
     }
 
     .modal form {
       display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      align-items: center
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+      margin-top: 20px;
     }
 
-    .modal input[type="email"] {
-      flex: 1;
-      min-width: 220px;
+    .modal input,
+    .modal textarea {
+      width: 100%;
       padding: 12px;
       border-radius: 8px;
-      border: 1px solid rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       background: #0b0b0b;
       color: #fff;
+      font-family: inherit;
+      outline: none;
     }
 
-    .modal button[type="submit"] {
-      padding: 12px 18px;
+    .modal textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .modal button[type="button"] {
+      padding: 14px 18px;
       border-radius: 8px;
       border: none;
       background: var(--accent);
       color: #fff;
       font-weight: 700;
-      cursor: pointer
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
+      transition: opacity 0.2s;
+    }
+
+    .modal button[type="button"]:hover {
+      opacity: 0.9;
     }
 
     .close {
@@ -503,42 +475,38 @@
       border: none;
       color: var(--muted);
       font-weight: 700;
-      cursor: pointer
+      cursor: pointer;
+      font-size: 24px;
+      position: absolute;
+      right: 20px;
+      top: 20px;
     }
 
-    /* small */
+    /* Mobile */
     @media (max-width:860px) {
       .card {
-        flex: 0 0 170px
+        flex: 0 0 170px;
       }
 
       .card img {
-        height: 230px
+        height: 230px;
+      }
+
+      .modal div[style*="flex"] {
+        flex-direction: column;
+      }
+
+      .modal img {
+        width: 100%;
+        height: 200px;
       }
     }
 
-    /* success toast */
-    .toast {
-      position: fixed;
-      right: 24px;
-      bottom: 24px;
-      background: #111;
-      padding: 12px 16px;
-      border-radius: 8px;
-      border: 1px solid rgba(255, 255, 255, 0.03);
-      display: none;
-      z-index: 99;
-      color: #fff;
-    }
-
+    /* Footer */
     footer {
       color: var(--muted);
       text-align: center;
-      padding: 36px 12px 120px
-    }
-
-    .ght {
-      color: #9a9a9a;
+      padding: 36px 12px 120px;
     }
 
     .footer-container {
@@ -576,27 +544,13 @@
       font-weight: 300;
     }
 
-    .footer-column ul li a:hover {
-      text-decoration: underline;
-    }
-
-    /* Voting section */
+    /* Vote */
     .vote-section {
       margin-top: 40px;
       padding: 20px;
       background-color: rgba(255, 255, 255, 0.05);
       border-radius: 10px;
       text-align: center;
-    }
-
-    .vote-section h3 {
-      font-weight: 600;
-      margin-bottom: 10px;
-    }
-
-    .vote-section p {
-      font-weight: 300;
-      margin-bottom: 20px;
     }
 
     .vote-grid {
@@ -621,11 +575,7 @@
       font-weight: 500;
     }
 
-    .vote-item button:hover {
-      background-color: #6e5e57;
-    }
-
-    /* Footer bottom */
+    /* Footer Bottom */
     .footer-bottom {
       border-top: 1px solid rgba(255, 255, 255, 0.2);
       padding-top: 20px;
@@ -649,30 +599,7 @@
       font-weight: 300;
     }
 
-    .footer-links a:hover {
-      text-decoration: underline;
-    }
-
-    .social-icons {
-      display: flex;
-      gap: 15px;
-    }
-
-    .social-icons a {
-      color: #fff;
-      font-size: 20px;
-      text-decoration: none;
-    }
-
-    /* Navbar alignment */
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 20px;
-    }
-
-    /* Menu button style */
+    /* Overlay menu */
     .menu-btn {
       cursor: pointer;
       font-size: 18px;
@@ -691,7 +618,6 @@
       transition: 0.3s;
     }
 
-    /* Overlay menu */
     .overlay {
       position: fixed;
       top: 0;
@@ -729,7 +655,6 @@
       font-weight: 500;
     }
 
-    /* Close button */
     .close-btn {
       position: absolute;
       top: 20px;
@@ -741,14 +666,18 @@
       z-index: 2100;
     }
 
-    .overlay.menu-panel {
-      background-color: #6e5e57;
-      width: 80%;
-      max-width: 320px;
-      height: 100%;
-      padding: 20px;
-      position: relative;
-      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+    /* Toast */
+    .toast {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      background: #111;
+      padding: 12px 16px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.03);
+      display: none;
+      z-index: 99;
+      color: #fff;
     }
   </style>
 </head>
@@ -758,34 +687,31 @@
   <nav class="nav" role="navigation">
     <div class="brand">
       <div class="logo">CARTIORÉ</div>
-      <div class="nav-links" aria-hidden="false">
-        <br>
-        <br>
+      <div class="nav-links">
+        <br><br>
         <a href="#">Home</a>
         <a href="Vote and influence.html">Vote</a>
         <a href="Cartiore Models.html">Models</a>
 
-        <div class="menu-btn" id="menuBtn" aria-label="Open menu" aria-controls="overlay" aria-expanded="false">
+        <div class="menu-btn" id="menuBtn" aria-label="Open menu">
           <div class="bars">
             <span></span>
             <span></span>
             <span></span>
           </div>
         </div>
-
       </div>
     </div>
   </nav>
 
   <!-- Overlay Menu -->
-  <div class="overlay" id="overlay" aria-hidden="true">
+  <div class="overlay" id="overlay">
     <div class="overlay-content">
-      <div class="close-btn" id="closeBtn" aria-label="Close menu">&times;</div>
+      <div class="close-btn" id="closeBtn">&times;</div>
       <ul>
         <li><a href="cartioreeeeluxe.html">Home</a></li>
         <li><a href="Vote and influence.html">Vote</a></li>
         <li><a href="Cartiore Models.html">Models</a></li>
-        <!-- <li><a href="order.html">Order</a></li> -->
         <li><a href="about.html">About</a></li>
       </ul>
     </div>
@@ -837,7 +763,7 @@
     <div id="preorder-anchor"></div>
 
     <footer>
-     
+
 
       <!-- Voting Section -->
       <div class="vote-section">
@@ -879,7 +805,7 @@
         <div class="footer-links">
           <a href="privacy.html">Privacy Policy</a>
           <a href="privacy.html">Terms of Use</a>
-          <a href="sitemap.xml">Sitemap</a>
+          <!-- <a href="sitemap.xml">Sitemap</a> -->
           <a href="mailto:cartioreluxe@gmail.com">cartioreluxe@gmail.com</a>
           <!-- <a href="order.html">Preorder Now</a> -->
           <a href="about.html">About</a>
@@ -904,14 +830,38 @@
         </div>
       </div>
 
-      <!-- Preorder Form -->
-      <form id="preorderForm" action="https://formsubmit.co/cartioreluxe@gmail.com" method="POST" style="margin-top:16px;">
-        <input id="emailInput" type="email" name="email" placeholder="Your email address" required>
-        <input id="prodInput" type="hidden" name="product">
+
+
+      <!-- did 1.0 -->
+
+
+
+      <form id="preorderForm" action="https://formsubmit.co/cartioreluxe@gmail.com" method="POST"
+        style="margin-top:16px;">
+
+        <!-- FormSubmit Settings -->
         <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_subject" value="New Cartioré Luxe Preorder">
-        <!-- <input type="hidden" name="_next" value="https://yourwebsite.com/cartioremodel.html"> -->
-        <button type="submit">Confirm Preorder</button>
+        <input type="hidden" name="_subject" value="New Preorder Paid!">
+        <input type="hidden" name="_template" value="table">
+        <!-- Redirect back to site after email (optional) -->
+        <!-- <input type="hidden" name="_next" value="http://yourwebsite.com/thanks.html"> -->
+
+        <!-- Product Details (Hidden) -->
+        <input type="hidden" name="Product_Name" id="prodInput">
+        <input type="hidden" name="Amount_Paid" id="amountInput">
+        <input type="hidden" name="Payment_Reference" id="refInput"> <!-- Stores Paystack Reference -->
+
+        <!-- Customer Details -->
+        <input id="nameInput" type="text" name="Full_Name" placeholder="Full Name" required>
+        <input id="emailInput" type="email" name="Email_Address" placeholder="Email Address" required>
+        <input id="phoneInput" type="tel" name="Phone_Number" placeholder="Phone Number" required>
+
+        <textarea id="addressInput" name="Shipping_Address" placeholder="Full Shipping Address (Street, City, State)"
+          required></textarea>
+
+        <button type="button" onclick="validateAndPay()">
+          Proceed to Payment
+        </button>
       </form>
     </div>
   </div>
@@ -920,286 +870,216 @@
   <div id="productList" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:20px;"></div>
 
   <!-- Toast -->
-  <div id="toast" class="toast" style="display:none;position:fixed;right:24px;bottom:24px;background:#111;color:#fff;padding:12px 16px;border-radius:8px;border:1px solid rgba(255,255,255,0.15);z-index:999;">
-    Preorder confirmed — check your email for details.
+  <div id="toast" class="toast">
+    Processing Payment...
   </div>
 
+  <script src="https://js.paystack.co/v1/inline.js"></script>
+
+
+
+  <!--  did 1.0  -->
+
   <script>
-    /*
-      >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-      EDIT YOUR SECTION PRODUCTS BELOW — ALL THREE ARE INDEPENDENT ARRAYS.
-      Make sure product "id" values are unique across all sections.
-      >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-    */
-
-    // 1) FEATURED STYLES (only shows in "Featured Styles" carousel)
+    /* ============================
+       PRODUCT DATA
+    ============================ */
     const productsFeatured = [
-      { id: 'f003', title: 'Shalay', desc: 'Double-breasted, structured shoulders.', image: '31.jpg' },
-      { id: 'f004', title: 'Le veu', desc: 'Double-breasted, structured shoulders.', image: '32.jpg' },
-      { id: 'f005', title: 'Le Pleux', desc: 'Double-breasted, structured shoulders.', image: '33.jpg' },
-      { id: 'f006', title: 'Shadow Wool Coat', desc: 'Double-breasted, structured shoulders.', image: '34.jpg' },
-      { id: 'f007', title: 'The Noir Blazer', desc: 'Hand-tailored blazer with satin lapel — limited run.', image: '35.jpg' },
-      { id: 'f008', title: 'Ivory Silk Dress', desc: 'Bias-cut silhouette with silk charmeuse.', image: '36.jpg' },
-      { id: 'f008', title: 'The Noir', desc: 'Bias-cut silhouette with silk charmeuse.', image: '37.jpg' },
+      { id: 'f003', title: 'Shalay', desc: 'Double-breasted, structured shoulders.', image: '31.jpg', price: 120000 },
+      { id: 'f004', title: 'Le Veu', desc: 'Double-breasted, structured shoulders.', image: '32.jpg', price:  150000},
+      { id: 'f005', title: 'Le Pleux', desc: 'Double-breasted, structured shoulders.', image: '33.jpg', price: 90000 },
+      { id: 'f006', title: 'Shadow Wool Coat', desc: 'Structured shoulders.', image: '34.jpg', price: 95000 },
+      { id: 'f007', title: 'The Noir Blazer', desc: 'Hand-tailored satin lapel.', image: '35.jpg', price: 90000 },
+      { id: 'f008a', title: 'Ivory Silk Dress', desc: 'Bias-cut silk charmeuse.', image: '36.jpg', price: 90000 },
+      { id: 'f009', title: 'The Noir', desc: 'Elegant silk silhouette.', image: '37.jpg', price: 105000 },
     ];
 
-    // 2) NEW ARRIVALS (only shows in "New Arrivals" carousel)
     const productsNew = [
-      { id: 'n001', title: 'Midnight Trench', desc: 'Lightweight trench with storm flap.', image: '38.jpg' },
-      { id: 'n002', title: 'Couture Trousers', desc: 'Slim-cut trousers with couture finishing.', image: 'men3.jpg' },
-      { id: 'n003', title: 'Casual Luxe Tee', desc: 'Premium cotton, relaxed fit.', image: 'men2.jpg' },
-      { id: 'n004', title: 'Silk Ply Shirt', desc: '100% silk for nightwear or formal elegance.', image: 'men1.jpg' },
-       { id: 'n005', title: 'The Noir Blazer', desc: 'Hand-tailored blazer with satin lapel — limited run.', image: 'men5.jpg' },
-      { id: 'n006', title: 'Ivory Silk Dress', desc: 'Bias-cut silhouette with silk charmeuse.', image: '32.jpg' },
-      { id: 'n007', title: 'crux', desc: 'Double-breasted, structured shoulders.', image: '31.jpg' },
-      // { id: 'n008', title: 'Lier', desc: 'Double-breasted, structured shoulders.', image: 'Mode2.jpg' },
-      //{ id: 'n009', title: 'Voleur', desc: 'Double-breasted, structured shoulders.', image: 'Model9.jpg' },
+      { id: 'n001', title: 'Midnight Trench', desc: 'Lightweight trench.', image: '38.jpg', price: 320000 },
+      { id: 'n002', title: 'Couture Trousers', desc: 'Slim-cut couture finish.', image: 'men3.jpg', price: 120000 },
+      { id: 'n003', title: 'Casual Luxe Tee', desc: 'Premium cotton.', image: 'men2.jpg', price: 95000 },
+      { id: 'n004', title: 'Silk Ply Shirt', desc: '100% silk elegance.', image: 'men1.jpg', price: 105000 },
+      { id: 'n005', title: 'Noir Blazer', desc: 'Limited run blazer.', image: 'men5.jpg', price: 120000 },
+      { id: 'n006', title: 'Ivory Dress', desc: 'Bias-cut silk.', image: '32.jpg', price: 150000 },
+      { id: 'n007', title: 'Crux', desc: 'Structured shoulders.', image: '31.jpg', price: 120000 },
     ];
 
-    // 3) LIMITED EDITIONS (only shows in "Limited Editions" carousel)
     const productsLimited = [
-      { id: 'l001', title: 'Luxe Overcoat Gown', desc: 'Wool blend for premium warmth and shape.', image: 'women3.jpg' },
-      { id: 'l002', title: 'Crex', desc: 'Chunky knit with embroidered logo.', image: '40.jpg' },
-      { id: 'l002', title: 'La Lux', desc: 'Chunky knit with embroidered logo.', image: '2.jpg' },
-      { id: 'l003', title: 'Chateu', desc: 'Chunky knit with embroidered logo.', image: '39.jpg' },
-       { id: 'l004', title: 'Noire ', desc: 'Hand-tailored blazer with satin lapel — limited run.', image: '41.jpg' },
-      { id: 'l005', title: 'Ivory Silk Dress', desc: 'Bias-cut silhouette with silk charmeuse.', image: 'women2.jpg' },
-      { id: 'l006', title: 'La croi', desc: 'Double-breasted, structured shoulders.', image: 'women1.jpg' },
-      //{ id: 'l007', title: 'Du panche', desc: 'Double-breasted, structured shoulders.', image: '42.jpg' },
-     // { id: 'l008', title: 'La voer', desc: 'Double-breasted, structured shoulders.', image: 'Model6.jpg' },
+      { id: 'l001', title: 'Luxe Overcoat Gown', desc: 'Wool blend.', image: 'women3.jpg', price: 6000000 },
+      { id: 'l002a', title: 'Crex Knit', desc: 'Chunky knit.', image: '40.jpg', price: 3000000 },
+      { id: 'l003', title: 'La Lux', desc: 'Luxury knit.', image: '2.jpg', price: 2000000 },
+      { id: 'l004', title: 'Chateu', desc: 'Premium texture.', image: '39.jpg', price: 4000000 },
+      { id: 'l005', title: 'Noire', desc: 'Limited blazer.', image: '41.jpg', price: 4500000 },
+      { id: 'l006', title: 'Ivory Silk', desc: 'Silk elegance.', image: 'women2.jpg', price: 1500000 },
+      { id: 'l007', title: 'La Croi', desc: 'Structured shoulders.', image: 'women1.jpg', price: 1500000 },
     ];
 
-    // Map section name -> array
-    const sectionMap = {
-      featured: productsFeatured,
-      new: productsNew,
-      limited: productsLimited
-    };
+    const ALL_PRODUCTS = [...productsFeatured, ...productsNew, ...productsLimited];
 
-    // Helper to get ALL products across sections (for preorder modal lookups)
-    function getAllProducts() {
-      return [...productsFeatured, ...productsNew, ...productsLimited];
+    /* ============================
+       RENDER PRODUCTS
+    ============================ */
+    function renderSection(section, products) {
+      const track = document.querySelector(`.track[data-section="${section}"]`);
+      if (!track) return;
+
+      // Optimization: Build string first, then update DOM once
+      const html = products.map(p => `
+      <div class="card">
+        <img src="${p.image}" alt="${p.title}">
+        <div class="meta">
+          <h4>${p.title}</h4>
+          <p>₦${p.price.toLocaleString()}</p>
+          <button class="preorder" onclick="openModal('${p.id}')">Preorder</button>
+        </div>
+      </div>
+  `).join('');
+
+      track.innerHTML = html;
     }
 
-    // Build product cards for each carousel track by its data-section
-    function renderSections() {
-      const tracks = document.querySelectorAll('.track');
-      tracks.forEach(track => {
-        const section = track.getAttribute('data-section'); // "featured" | "new" | "limited"
-        const products = sectionMap[section] || [];
-        track.innerHTML = ''; // clear
-        products.forEach(p => {
-          const card = document.createElement('div');
-          card.className = 'card';
-          card.innerHTML =
-            `
-            <img src="${p.image}" alt="${p.title}">
-            <div class="meta">
-              <h4>${p.title}</h4>
-              <p>${p.desc}</p>
-              <button class="preorder" data-id="${p.id}" aria-label="Preorder ${p.title}">Preorder</button>
-            </div>
-          `;
-          track.appendChild(card);
+    /* ============================
+       MODAL & PAYSTACK
+    ============================ */
+    let currentProduct = null;
+
+    function openModal(id) {
+      currentProduct = ALL_PRODUCTS.find(p => p.id === id);
+      if (!currentProduct) return;
+
+      // Update Visuals
+      document.getElementById('modalImg').src = currentProduct.image;
+      document.getElementById('modalTitle').textContent = currentProduct.title;
+      document.getElementById('modalDesc').textContent = currentProduct.desc;
+
+      // Update Hidden Inputs
+      document.getElementById('prodInput').value = currentProduct.title;
+      document.getElementById('amountInput').value = `₦${currentProduct.price.toLocaleString()}`;
+
+      // Show Modal
+      document.getElementById('modalBackdrop').style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('modalBackdrop').style.display = 'none';
+    }
+
+    function validateAndPay() {
+      if (!currentProduct) return alert('No product selected');
+
+      // Securely get values
+      const name = document.getElementById('nameInput').value.trim();
+      const email = document.getElementById('emailInput').value.trim();
+      const phone = document.getElementById('phoneInput').value.trim();
+      const address = document.getElementById('addressInput').value.trim();
+
+      // Basic Validation
+      if (!name || !email || !phone || !address) {
+        return alert('Please fill in all fields (Name, Email, Phone, Address)');
+      }
+
+      // Check if Paystack script is loaded
+      if (typeof PaystackPop === 'undefined') {
+        return alert('Payment system is loading, please check your internet and try again.');
+      }
+
+      const handler = PaystackPop.setup({
+        key: 'pk_test_6fca50e065add0586dccdc7b8a0804bac033d639', // Your Public Key
+        email: email,
+        amount: currentProduct.price * 100, // Convert to Kobo
+        currency: 'NGN',
+        metadata: {
+          custom_fields: [
+            { display_name: "Customer Name", variable_name: "customer_name", value: name },
+            { display_name: "Phone Number", variable_name: "phone", value: phone },
+            { display_name: "Address", variable_name: "address", value: address },
+            { display_name: "Product", variable_name: "product", value: currentProduct.title }
+          ]
+        },
+        callback: function (res) {
+          // Payment Successful
+          document.getElementById('refInput').value = res.reference;
+
+          const toast = document.getElementById('toast');
+          if (toast) {
+            toast.innerText = "Payment successful! Sending order...";
+            toast.style.display = "block";
+          }
+
+          document.getElementById('preorderForm').submit();
+        },
+        onClose: function () {
+          alert('Payment cancelled');
+        }
+      });
+
+      handler.openIframe();
+    }
+
+    /* ============================
+       UTILITIES
+    ============================ */
+    function scrollRow(btn, dir) {
+      const track = btn.parentElement.querySelector('.track');
+      if (track) {
+        track.scrollBy({ left: dir * 300, behavior: 'smooth' });
+      }
+    }
+
+    /* ============================
+       INIT
+    ============================ */
+    document.addEventListener('DOMContentLoaded', () => {
+      renderSection('featured', productsFeatured);
+      renderSection('new', productsNew);
+      renderSection('limited', productsLimited);
+
+      const backdrop = document.getElementById('modalBackdrop');
+      if (backdrop) {
+        backdrop.addEventListener('click', e => {
+          if (e.target === backdrop) closeModal();
+        });
+      }
+    });
+
+
+
+
+
+
+
+
+    // --- MENU LOGIC (ADDED) ---
+    const menuBtn = document.getElementById('menuBtn');
+    const overlay = document.getElementById('overlay');
+    const closeBtn = document.getElementById('closeBtn');
+
+    // Check if elements exist to avoid errors
+    if (menuBtn && overlay && closeBtn) {
+
+      // When Hamburger is clicked -> Add 'active' class (Slide in)
+      menuBtn.addEventListener('click', () => {
+        overlay.classList.add('active');
+      });
+
+      // When X button is clicked -> Remove 'active' class (Slide out)
+      closeBtn.addEventListener('click', () => {
+        overlay.classList.remove('active');
+      });
+
+      // Optional: Close menu when clicking a link inside it
+      overlay.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          overlay.classList.remove('active');
         });
       });
     }
 
-    // Horizontal scroll by N cards
-    function scrollRow(btn, direction) {
-      const carousel = btn.closest('.carousel');
-      const track = carousel.querySelector('.track');
-      const cardWidth = track.querySelector('.card')?.offsetWidth || 220;
-      track.scrollBy({ left: direction * cardWidth * 3, behavior: 'smooth' });
-    }
-
-    // Drag-to-scroll
-    function enableDragScroll(track) {
-      let isDown = false, startX = 0, scrollLeft = 0;
-
-      track.addEventListener('mousedown', (e) => {
-        isDown = true;
-        startX = e.pageX - track.offsetLeft;
-        scrollLeft = track.scrollLeft;
-        track.classList.add('active');
-      });
-
-      track.addEventListener('mouseleave', () => {
-        isDown = false;
-        track.classList.remove('active');
-      });
-
-      track.addEventListener('mouseup', () => {
-        isDown = false;
-        track.classList.remove('active');
-      });
-
-      track.addEventListener('mousemove', (e) => {
-        if (!isDown) return;
-        e.preventDefault();
-        const x = e.pageX - track.offsetLeft;
-        const walk = (x - startX) * 1.5;
-        track.scrollLeft = scrollLeft - walk;
-      });
-
-      // touch
-      let startTouchX = 0, startTouchLeft = 0;
-      track.addEventListener('touchstart', (e) => {
-        startTouchX = e.touches[0].pageX;
-        startTouchLeft = track.scrollLeft;
-      });
-      track.addEventListener('touchmove', (e) => {
-        const walk = (e.touches[0].pageX - startTouchX) * 1.2;
-        track.scrollLeft = startTouchLeft - walk;
-      });
-    }
-
-    // Grab modal elements
-    const modalBackdrop = document.getElementById('modalBackdrop');
-    const modalImg = document.getElementById('modalImg');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalDesc = document.getElementById('modalDesc');
-    const preorderForm = document.getElementById('preorderForm');
-    const emailInput = document.getElementById('emailInput');
-    const prodInput = document.getElementById('prodInput');
-    const modalClose = document.getElementById('modalClose');
-    const toast = document.getElementById('toast');
-
-    // Open modal (from product click)
-    function openPreorder(productName, productDesc, productImg) {
-      modalTitle.textContent = productName;
-      modalDesc.textContent = productDesc;
-      modalImg.src = productImg;
-      prodInput.value = productName; // keeps readable title in submission
-      modalBackdrop.style.display = "flex";
-      modalBackdrop.setAttribute('aria-hidden', 'false');
-      emailInput.value = '';
-      setTimeout(() => emailInput.focus(), 0);
-    }
-
-    // Convenience: open via product id across ALL sections
-    function openPreorderById(id) {
-      const p = getAllProducts().find(x => x.id === id);
-      if (p) openPreorder(p.title, p.desc, p.image);
-    }
-
-    // Delegated click for any .preorder button
-    document.addEventListener('click', (e) => {
-      const tgt = e.target;
-      if (tgt.classList.contains('preorder')) {
-        const id = tgt.getAttribute('data-id');
-        if (id) openPreorderById(id);
-      }
-    });
-
-    // Close modal
-    function closeModal() {
-      modalBackdrop.style.display = "none";
-      modalBackdrop.setAttribute('aria-hidden', 'true');
-    }
-
-    // Close actions
-    if (modalClose) modalClose.addEventListener('click', closeModal);
-    modalBackdrop.addEventListener('click', (e) => {
-      if (e.target === modalBackdrop) closeModal();
-    });
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeModal();
-    });
-
-    // Email validator
-    function validEmail(email) {
-      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    }
-
-    // Save preorder locally
-    function savePreorder({ id, email, title, image }) {
-      const key = 'cartiore_preorder';
-      const current = JSON.parse(localStorage.getItem(key) || '[]');
-      current.push({ id, email, title, image, date: new Date().toISOString() });
-      localStorage.setItem(key, JSON.stringify(current));
-    }
-
-    // Toast
-    function showToast(msg = 'Preorder confirmed — check your email for details.') {
-      toast.textContent = msg;
-      toast.style.display = 'block';
-      toast.style.opacity = '0';
-      requestAnimationFrame(() => { toast.style.opacity = '1'; });
-      setTimeout(() => {
-        toast.style.opacity = '0';
-        setTimeout(() => { toast.style.display = 'none'; }, 300);
-      }, 2600);
-    }
-
-    // Handle form submit
-    preorderForm.addEventListener('submit', function (e) {
-      const email = emailInput.value.trim();
-      const productName = prodInput.value;
-      const prod = getAllProducts().find(p => p.title === productName) || { id: productName, title: productName, image: '' };
-
-      if (!validEmail(email)) {
-        alert('Please enter a valid email address.');
-        emailInput.focus();
-        e.preventDefault();
-        return;
-      }
-
-      // Save locally for your own analytics
-      savePreorder({ id: prod.id, email, title: prod.title, image: prod.image });
-
-      // Optional UX
-      showToast('Order successful — thank you! Check your inbox shortly.');
-      closeModal();
-      // Allow FormSubmit redirect
-    });
-
-    // Menu overlay wiring
-    const menuBtn = document.getElementById('menuBtn');
-    const overlay = document.getElementById('overlay');
-    const closeBtn = document.getElementById('closeBtn');
-    const menuLinks = document.querySelectorAll('.overlay ul li a');
-
-    if (menuBtn && overlay && closeBtn) {
-      menuBtn.onclick = () => {
-        overlay.classList.add('active');
-        overlay.setAttribute('aria-hidden', 'false');
-        menuBtn.setAttribute('aria-expanded', 'true');
-      };
-      closeBtn.onclick = () => {
-        overlay.classList.remove('active');
-        overlay.setAttribute('aria-hidden', 'true');
-        menuBtn.setAttribute('aria-expanded', 'false');
-      };
-      overlay.onclick = (e) => {
-        if (e.target === overlay) {
-          overlay.classList.remove('active');
-          overlay.setAttribute('aria-hidden', 'true');
-          menuBtn.setAttribute('aria-expanded', 'false');
-        }
-      };
-      menuLinks.forEach(link => link.addEventListener('click', () => {
-        overlay.classList.remove('active');
-        overlay.setAttribute('aria-hidden', 'true');
-        menuBtn.setAttribute('aria-expanded', 'false');
-      }));
-    }
-
-    // Scroll to preorder anchor
-    function scrollToPreorder() {
-      const el = document.getElementById('preorder-anchor');
-      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-
-    // Init on load
-    document.addEventListener('DOMContentLoaded', () => {
-      renderSections(); // build each independent section
-      document.querySelectorAll('.track').forEach(enableDragScroll);
-    });
   </script>
-
 </body>
+
 </html>
+
 
 
 
