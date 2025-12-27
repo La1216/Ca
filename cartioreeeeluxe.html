@@ -679,6 +679,16 @@
       z-index: 99;
       color: #fff;
     }
+      select {
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+  border:  rgba(255, 255, 255, 0.03);
+  font-size: 15px;
+  background: #111;
+  color: #3a3a3a;
+  border-color: #1a1a1a;
+}
   </style>
 </head>
 
@@ -855,6 +865,14 @@
         <input id="nameInput" type="text" name="Full_Name" placeholder="Full Name" required>
         <input id="emailInput" type="email" name="Email_Address" placeholder="Email Address" required>
         <input id="phoneInput" type="tel" name="Phone_Number" placeholder="Phone Number" required>
+
+ <select id="sizeInput" name="Clothing Size" required>
+  <option value="" disabled selected>Select Clothing Size</option>
+  <option value="Small">Small</option>
+  <option value="Medium">Medium</option>
+  <option value="Large">Large</option>
+  <option value="Extra Large">Extra Large</option>
+</select>
 
         <textarea id="addressInput" name="Shipping_Address" placeholder="Full Shipping Address (Street, City, State)"
           required></textarea>
@@ -1079,6 +1097,7 @@
 </body>
 
 </html>
+
 
 
 
