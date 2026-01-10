@@ -588,7 +588,7 @@
         <div class="cart-footer">
             <div style="display: flex; justify-content: space-between; margin-bottom: 1.5rem; font-size: 1.2rem;">
                 <span>Total</span>
-                <span id="cartTotalDisplay">₦0.00</span>
+                <span id="cartTotalDisplay">£0.00</span>
             </div>
             
             <div id="checkoutBtnWrapper">
@@ -859,8 +859,8 @@
 
         // 2. INITIALIZE STATE
         const STATE = {
-            currency: 'NGN',
-            rates: { NGN: 1, USD: 0.00065, GBP: 0.00051, EUR: 0.00060 },
+            currency: 'GBP',
+            rates: { NGN: 1, USD: 0.00065, GBP: 0.0005217, EUR: 0.0006022 },
             symbols: { NGN: '₦', USD: '$', GBP: '£', EUR: '€' },
             cart: JSON.parse(localStorage.getItem('cartiore_cart')) || [],
             products: ALL_PRODUCTS // IMPORTANT: Connect products to state
